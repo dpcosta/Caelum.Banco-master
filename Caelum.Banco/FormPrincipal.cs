@@ -9,14 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Caelum.Banco.Negocio;
+using Caelum.Banco.Dados;
 
 namespace Caelum.Banco
 {
+
+    // S => Single Responsibility Principle
     public partial class FormPrincipal : Form
     {
-        string nomeArquivo = "contas.txt";
+        
         IList<Conta> contas;
         IDictionary<string, Conta> contasPorTitular;
+        PersistenciaContas dados;
 
         public FormPrincipal()
         {
@@ -32,43 +36,13 @@ namespace Caelum.Banco
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
+            dados = new PersistenciaContas();
             contas = new List<Conta>();
             contasPorTitular = new Dictionary<string, Conta>();
 
-            // carregar a lista de contas a partir de um arquivo
-            this.CarregaContasDoArquivo();
-        }
-
-        private void CarregaContasDoArquivo()
-        {
-            if (File.Exists(nomeArquivo))
+            foreach(var conta in dados.CarregaContasDoArquivo())
             {
-                using (var conteudo = File.OpenRead(nomeArquivo))
-                using (var leitor = new StreamReader(conteudo))
-                {
-                    string linha = leitor.ReadLine();
-                    while (linha != null)
-                    {
-                        Conta conta = ConverteLinhaEmConta.Converte(linha);
-                        this.AdicionaConta(conta);
-                        linha = leitor.ReadLine();
-                    }
-                }
-            }
-        }
-
-        private void SalvaContasNoArquivo()
-        {
-            using (var conteudo = File.OpenWrite(nomeArquivo))
-            using (var escritor = new StreamWriter(conteudo))
-            {
-                foreach(var conta in this.contas)
-                {
-                    // if de uma linha só - operador ternário
-                    var tipo = (conta is ContaCorrente) ? "CC" : "CP";
-                    var linha = $"{conta.Numero};{conta.Titular.Nome};{conta.Saldo};{tipo}";
-                    escritor.WriteLine(linha);
-                }
+                this.AdicionaConta(conta);
             }
         }
 
@@ -164,7 +138,7 @@ namespace Caelum.Banco
 
         private void FormPrincipal_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.SalvaContasNoArquivo();
+            dados.SalvaContasNoArquivo(this.contas);        
         }
     }
 }

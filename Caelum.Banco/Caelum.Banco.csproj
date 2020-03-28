@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Busca\GeradorDeDevedores.cs" />
+    <Compile Include="Dados\PersistenciaContas.cs" />
     <Compile Include="FormCadastroConta.cs">
       <SubType>Form</SubType>
     </Compile>
