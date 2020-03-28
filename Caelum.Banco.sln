@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caelum.Banco", "Caelum.Banco\Caelum.Banco.csproj", "{24DCD56C-21DE-4EBB-8CC5-C48F4EA86870}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{18B403EE-6886-402A-9C03-D1ECBE62019E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24DCD56C-21DE-4EBB-8CC5-C48F4EA86870}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24DCD56C-21DE-4EBB-8CC5-C48F4EA86870}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24DCD56C-21DE-4EBB-8CC5-C48F4EA86870}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24DCD56C-21DE-4EBB-8CC5-C48F4EA86870}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18B403EE-6886-402A-9C03-D1ECBE62019E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18B403EE-6886-402A-9C03-D1ECBE62019E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18B403EE-6886-402A-9C03-D1ECBE62019E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18B403EE-6886-402A-9C03-D1ECBE62019E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4837EB8-374B-4CB2-8E65-563B78CA6DDD}
+	EndGlobalSection
+EndGlobal
