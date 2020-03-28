@@ -2,6 +2,9 @@
 
 namespace Caelum.Banco.Negocio
 {
+    /// <summary>
+    /// Representa uma conta bancária.
+    /// </summary>
     public abstract class Conta
     {
         private static int totalContas;
